@@ -29,6 +29,10 @@ func main() {
 
 	// Generate errors.go in the goerrors directory
 	outPath := filepath.Join("./", "goerrors", "errors.go")
+	if err := os.MkdirAll(filepath.Dir(outPath), os.ModePerm); err != nil {
+		panic(err)
+	}
+
 	out, err := os.Create(outPath)
 	if err != nil {
 		panic(err)
