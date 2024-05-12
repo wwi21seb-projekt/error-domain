@@ -19,6 +19,12 @@ jobs:
           go-version-file: go-errors/go.mod
           cache-dependency-path: go-errors/go.sum
 
+      - name: Set up Pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          package_json_file: ts-errors/package.json
+          run_install: false
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -26,11 +32,21 @@ jobs:
           cache: pnpm
           cache-dependency-path: ts-errors/pnpm-lock.yaml
 
+      - name: Install Go dependencies
+        run: go mod download
+        working-directory: ./go-errors
+
       - name: Generate Golang errors
-        run: go run scripts/generate.go
+        run: go run generate.go
+        working-directory: ./go-errors
 
       - name: Generate TypeScript errors
-        run: node scripts/generate.ts
+        run: pnpm prepublishOnly
+        working-directory: ./ts-errors
+
+      - name: Install TypeScript dependencies
+        run: pnpm install
+        working-directory: ./ts-errors
 
       - name: Create App Token
         id: generate-token
