@@ -1,5 +1,5 @@
 // generate.go
-package main
+package goerrors
 
 import (
 	"encoding/json"
@@ -9,9 +9,9 @@ import (
 )
 
 type CustomError struct {
-	Message    string `json:"message"`
-	Code       string `json:"code"`
-	HttpStatus int    `json:"httpStatus"`
+	Message    string
+	Code       string
+	HttpStatus int
 }
 
 func main() {
@@ -46,7 +46,6 @@ func main() {
 
 	_, _ = out.WriteString("package goerrors\n\n")
 
-	_, _ = out.WriteString("type CustomError struct {\n\tMessage string\n\tCode string\n\tHttpStatus int\n}\n\n")
 	_, _ = out.WriteString("var (\n")
 	for _, e := range errors {
 		_, _ = out.WriteString(fmt.Sprintf("\t%s = &CustomError{\n\t\tMessage: \"%s\",\n\t\tCode: \"%s\",\n\t\tHttpStatus: %d,\n\t}\n", e.Code, e.Message, e.Code, e.HttpStatus))
