@@ -2,26 +2,37 @@
   "name": "@wwi21seb-projekt/ts-errors",
   "version": "1.0.0",
   "description": "Project containing shared errors for the wwi21seb project",
-  "main": "index.js",
+  "repository": "https://github.com/wwi21seb-projekt/error-domain",
+  "main": "./dist/errors.js",
+  "types": "./dist/errors.d.ts",
   "author": "@wwi21seb-projekt",
   "license": "MIT",
   "type": "module",
-  "publishConfig": {
-    "directory": "dist",
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
-  },
   "engines": {
-    "node": ">=21",
-    "pnpm": ">=9"
+    "node": "^20.13.1",
+    "pnpm": "^9.1.0"
   },
   "scripts": {
     "build": "tsc",
-    "generate": "ts-node scripts/generate.ts",
+    "generate": "tsc && node dist/generate.js",
     "prepublishOnly": "pnpm generate && pnpm build"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "dist/errors.js",
+    "dist/errors.d.ts",
+    "dist/errors.d.ts.map"
+  ],
   "devDependencies": {
-    "ts-node": "^10.9.2",
+    "@types/node": "^20.12.11",
     "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394",
+  "pnpm": {
+    "overrides": {
+      "@types/node": "20.0.0"
+    }
   }
 }
