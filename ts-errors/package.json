@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "@wwi21seb-projekt",
   "license": "MIT",
+  "type": "module",
   "publishConfig": {
     "directory": "dist",
     "access": "public",
