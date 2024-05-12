@@ -1,0 +1,102 @@
+[
+  {
+    "code": "BadRequest",
+    "message": "The request body is invalid. Please check the request body and try again.",
+    "httpStatus": 400
+  },
+  {
+    "code": "UsernameTaken",
+    "message": "The username is already taken. Please try another username.",
+    "httpStatus": 409
+  },
+  {
+    "code": "EmailTaken",
+    "message": "The email is already taken. Please try another email.",
+    "httpStatus": 409
+  },
+  {
+    "code": "UserNotFound",
+    "message": "The user was not found. Please check the username and try again.",
+    "httpStatus": 404
+  },
+  {
+    "code": "UserNotActivated",
+    "message": "The user is not activated. Please activate the user and try again.",
+    "httpStatus": 403
+  },
+  {
+    "code": "ActivationTokenExpired",
+    "message": "The token has expired. Please check your mail for a new token and try again.",
+    "httpStatus": 401
+  },
+  {
+    "code": "InvalidToken",
+    "message": "The token is invalid. Please check the token and try again.",
+    "httpStatus": 401
+  },
+  {
+    "code": "InvalidCredentials",
+    "message": "The credentials are invalid. Please check the credentials and try again.",
+    "httpStatus": 401
+  },
+  {
+    "code": "InternalServerError",
+    "message": "An internal server error occurred. Please try again later.",
+    "httpStatus": 500
+  },
+  {
+    "code": "DatabaseError",
+    "message": "A database error occurred. Please try again later.",
+    "httpStatus": 500
+  },
+  {
+    "code": "EmailUnreachable",
+    "message": "The email is unreachable. Please check the email and try again.",
+    "httpStatus": 400
+  },
+  {
+    "code": "EmailNotSent",
+    "message": "The email could not be sent. Please try again later.",
+    "httpStatus": 500
+  },
+  {
+    "code": "UserAlreadyActivated",
+    "message": "The user is already activated. Please login to your account.",
+    "httpStatus": 400
+  },
+  {
+    "code": "Unauthorized",
+    "message": "The request is unauthorized. Please login to your account.",
+    "httpStatus": 401
+  },
+  {
+    "code": "SubscriptionNotFound",
+    "message": "The subscription was not found. Please check the username and try again.",
+    "httpStatus": 404
+  },
+  {
+    "code": "SubscriptionAlreadyExists",
+    "message": "The subscription already exists. Please check the username and try again.",
+    "httpStatus": 409
+  },
+  {
+    "code": "SubscriptionSelfFollow",
+    "message": "You cannot follow yourself. Please check the username and try again.",
+    "httpStatus": 400
+  },
+  {
+    "code": "UnsubscribeForbidden",
+    "message": "You can only delete your own subscriptions.",
+    "httpStatus": 403
+  },
+  {
+    "code": "DeletePostForbidden",
+    "message": "You can only delete your own posts.",
+    "httpStatus": 403
+  },
+  {
+    "code": "PostNotFound",
+    "message": "The post was not found. Please check the post ID and try again.",
+    "httpStatus": 404
+  }
+]

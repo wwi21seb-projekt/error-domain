@@ -1,0 +1,26 @@
+{
+  "name": "@wwi21seb-projekt/ts-errors",
+  "version": "1.0.0",
+  "description": "Project containing shared errors for the wwi21seb project",
+  "main": "index.js",
+  "author": "@wwi21seb-projekt",
+  "license": "MIT",
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": ">=21",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "build": "tsc",
+    "generate": "ts-node scripts/generate.ts",
+    "prepublishOnly": "pnpm generate && pnpm build"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

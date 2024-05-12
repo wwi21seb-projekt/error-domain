@@ -1,0 +1,31 @@
+name: Generate Error Codes
+
+on:
+  push:
+    paths:
+      - 'errors/errors.json'
+
+jobs:
+  generate-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version-file: go-errors/go.mod
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ts-errors/package.json
+      - name: Generate Golang errors
+        run: go run scripts/generate.go
+      - name: Generate TypeScript errors
+        run: node scripts/generate.ts
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add -A
+          git commit -m "Update generated error codes" || echo "No changes to commit"
+          git push
