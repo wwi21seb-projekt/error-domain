@@ -1,4 +1,11 @@
+// CODE GENERATED - DO NOT EDIT
 package goerrors
+
+type CustomError struct {
+	Message    string
+	Code       string
+	HttpStatus int
+}
 
 var (
 	BadRequest = &CustomError{

@@ -1,11 +1,11 @@
-// generate.go
-package goerrors
+// Package main generate.go
+package main
 
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"os"
+	"path/filepath"
 )
 
 type CustomError struct {
@@ -15,40 +15,37 @@ type CustomError struct {
 }
 
 func main() {
-	jsonFile, err := os.Open("errors/errors.json")
+	// Path to the JSON file containing the errors
+	path := filepath.Join("..", "errors", "errors.json")
+	file, err := os.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
-	defer func(jsonFile *os.File) {
-		err := jsonFile.Close()
-		if err != nil {
-			panic(err)
-		}
-	}(jsonFile)
-
-	bytes, _ := io.ReadAll(jsonFile)
 	var errors []CustomError
-	if err := json.Unmarshal(bytes, &errors); err != nil {
-		panic(err)
-
-	}
-
-	out, err := os.Create("go-errors/errors.go")
+	err = json.Unmarshal(file, &errors)
 	if err != nil {
 		panic(err)
 	}
-	defer func(out *os.File) {
-		err := out.Close()
-		if err != nil {
-			panic(err)
-		}
-	}(out)
 
+	// Generate errors.go in the goerrors directory
+	outPath := filepath.Join("./", "goerrors", "errors.go")
+	out, err := os.Create(outPath)
+	if err != nil {
+		panic(err)
+	}
+	defer out.Close()
+
+	_, _ = out.WriteString("// CODE GENERATED - DO NOT EDIT\n")
 	_, _ = out.WriteString("package goerrors\n\n")
+
+	_, _ = out.WriteString("type CustomError struct {\n\tMessage string\n\tCode string\n\tHttpStatus int\n}\n\n")
 
 	_, _ = out.WriteString("var (\n")
 	for _, e := range errors {
 		_, _ = out.WriteString(fmt.Sprintf("\t%s = &CustomError{\n\t\tMessage: \"%s\",\n\t\tCode: \"%s\",\n\t\tHttpStatus: %d,\n\t}\n", e.Code, e.Message, e.Code, e.HttpStatus))
 	}
 	_, _ = out.WriteString(")\n")
+
+	// Run go fmt on the generated file
+
 }
