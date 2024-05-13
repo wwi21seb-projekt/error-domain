@@ -10,16 +10,28 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Generate token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          # Set the owner, so the token can be used to dispatch to other repositories.
+          owner: ${{ github.repository_owner }}
+          repositories: "errors-go,errors-ts"
+
       - name: Dispatch Go
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}
           event-type: generate-errors
           client-payload: '{"commit-message": "${{ github.event.head_commit.message }}"}'
+          repository: wwi21seb-projekt/errors-go
 
       - name: Dispatch TypeScript
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}
           event-type: generate-errors
           client-payload: '{"commit-message": "${{ github.event.head_commit.message }}"}'
+          repository: wwi21seb-projekt/errors-ts
