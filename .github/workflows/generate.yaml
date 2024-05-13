@@ -1,9 +1,10 @@
-name: Generate Error Codes
+name: Dispatch Domains and Generate Documentation
 
 on:
   push:
     branches: [main]
-    paths-ignore: ["README.md"]
+    paths-ignore:
+      - "**/README.md"
 
 jobs:
   dispatch-domains:
@@ -25,7 +26,7 @@ jobs:
       - name: Normalize commit message
         id: normalize-commit
         run: |
-          formatted_message=$(echo "${{ github.event.head_commit.message }}" | sed ':a;N;$!ba;s/\n/\\\\n/g')
+          formatted_message=$(echo "${{ github.event.head_commit.message }}" | sed ':a;N;$!ba;s/\n/\\n/g')
           echo "commit_message=$formatted_message" >> $GITHUB_OUTPUT
           echo "Normalized commit message: $formatted_message" # Debug output
 
@@ -62,15 +63,15 @@ jobs:
               const errors = JSON.parse(data);
               
               // Write static content to README.md
-              let output = '# Error Codes\\n\\n';
-              output += 'This is the shared error domain for the project. If you want to contribute, you need to add the error to `errors.json` and commit it using conventional commits.\\n\\n';
+              let output = '# Error Codes\n\n';
+              output += 'This is the shared error domain for the project. If you want to contribute, you need to add the error to `errors.json` and commit it using conventional commits.\n\n';
 
               // Generate Markdown table
               output += `| Title | Code | Message | HTTP Status |\n`;
               output += `| --- | --- | --- | --- |\n`;
               
               errors.forEach(error => {
-                output += `| ${error.title} | ${error.code} | ${error.message.replace(/\|/g, '\\|')} | ${error.httpStatus} |\n`;
+                output += `| ${error.title} | ${error.code} | ${error.message.replace(/\|/g, '\\|')} | ${error.http_status} |\n`;
               });
 
               // Write to README.md

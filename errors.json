@@ -45,7 +45,7 @@
     "title": "InvalidCredentials",
     "code": "ERR-008",
     "message": "The credentials are invalid. Please check the credentials and try again.",
-    "http_status": 401
+    "http_status": 404
   },
   {
     "title": "InternalServerError",
@@ -99,7 +99,7 @@
     "title": "SubscriptionSelfFollow",
     "code": "ERR-017",
     "message": "You cannot follow yourself. Please check the username and try again.",
-    "http_status": 400
+    "http_status": 406
   },
   {
     "title": "UnsubscribeForbidden",
@@ -118,5 +118,17 @@
     "code": "ERR-020",
     "message": "The post was not found. Please check the post ID and try again.",
     "http_status": 404
+  },
+  {
+    "title": "AlreadyLiked",
+    "code": "ERR-021",
+    "message": "You have already liked this post.",
+    "http_status": 409
+  },
+  {
+    "title": "NotLiked",
+    "code": "ERR-022",
+    "message": "You can't unlike a post you haven't liked.",
+    "http_status": 409
   }
 ]
