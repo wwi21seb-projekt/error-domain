@@ -1,102 +1,122 @@
 [
   {
-    "code": "BadRequest",
+    "title": "BadRequest",
+    "code": "ERR-001",
     "message": "The request body is invalid. Please check the request body and try again.",
-    "httpStatus": 400
+    "http_status": 400
   },
   {
-    "code": "UsernameTaken",
+    "title": "UsernameTaken",
+    "code": "ERR-002",
     "message": "The username is already taken. Please try another username.",
-    "httpStatus": 409
+    "http_status": 409
   },
   {
-    "code": "EmailTaken",
+    "title": "EmailTaken",
+    "code": "ERR-003",
     "message": "The email is already taken. Please try another email.",
-    "httpStatus": 409
+    "http_status": 409
   },
   {
-    "code": "UserNotFound",
+    "title": "UserNotFound",
+    "code": "ERR-004",
     "message": "The user was not found. Please check the username and try again.",
-    "httpStatus": 404
+    "http_status": 404
   },
   {
-    "code": "UserNotActivated",
+    "title": "UserNotActivated",
+    "code": "ERR-005",
     "message": "The user is not activated. Please activate the user and try again.",
-    "httpStatus": 403
+    "http_status": 403
   },
   {
-    "code": "ActivationTokenExpired",
+    "title": "ActivationTokenExpired",
+    "code": "ERR-006",
     "message": "The token has expired. Please check your mail for a new token and try again.",
-    "httpStatus": 401
+    "http_status": 401
   },
   {
-    "code": "InvalidToken",
+    "title": "InvalidToken",
+    "code": "ERR-007",
     "message": "The token is invalid. Please check the token and try again.",
-    "httpStatus": 401
+    "http_status": 401
   },
   {
-    "code": "InvalidCredentials",
+    "title": "InvalidCredentials",
+    "code": "ERR-008",
     "message": "The credentials are invalid. Please check the credentials and try again.",
-    "httpStatus": 401
+    "http_status": 401
   },
   {
-    "code": "InternalServerError",
+    "title": "InternalServerError",
+    "code": "ERR-009",
     "message": "An internal server error occurred. Please try again later.",
-    "httpStatus": 500
+    "http_status": 500
   },
   {
-    "code": "DatabaseError",
+    "title": "DatabaseError",
+    "code": "ERR-010",
     "message": "A database error occurred. Please try again later.",
-    "httpStatus": 500
+    "http_status": 500
   },
   {
-    "code": "EmailUnreachable",
+    "title": "EmailUnreachable",
+    "code": "ERR-011",
     "message": "The email is unreachable. Please check the email and try again.",
-    "httpStatus": 400
+    "http_status": 400
   },
   {
-    "code": "EmailNotSent",
+    "title": "EmailNotSent",
+    "code": "ERR-012",
     "message": "The email could not be sent. Please try again later.",
-    "httpStatus": 500
+    "http_status": 500
   },
   {
-    "code": "UserAlreadyActivated",
+    "title": "UserAlreadyActivated",
+    "code": "ERR-013",
     "message": "The user is already activated. Please login to your account.",
-    "httpStatus": 400
+    "http_status": 400
   },
   {
-    "code": "Unauthorized",
+    "title": "Unauthorized",
+    "code": "ERR-014",
     "message": "The request is unauthorized. Please login to your account.",
-    "httpStatus": 401
+    "http_status": 401
   },
   {
-    "code": "SubscriptionNotFound",
+    "title": "SubscriptionNotFound",
+    "code": "ERR-015",
     "message": "The subscription was not found. Please check the username and try again.",
-    "httpStatus": 404
+    "http_status": 404
   },
   {
-    "code": "SubscriptionAlreadyExists",
+    "title": "SubscriptionAlreadyExists",
+    "code": "ERR-016",
     "message": "The subscription already exists. Please check the username and try again.",
-    "httpStatus": 409
+    "http_status": 409
   },
   {
-    "code": "SubscriptionSelfFollow",
+    "title": "SubscriptionSelfFollow",
+    "code": "ERR-017",
     "message": "You cannot follow yourself. Please check the username and try again.",
-    "httpStatus": 400
+    "http_status": 400
   },
   {
-    "code": "UnsubscribeForbidden",
+    "title": "UnsubscribeForbidden",
+    "code": "ERR-018",
     "message": "You can only delete your own subscriptions.",
-    "httpStatus": 403
+    "http_status": 403
   },
   {
-    "code": "DeletePostForbidden",
+    "title": "DeletePostForbidden",
+    "code": "ERR-019",
     "message": "You can only delete your own posts.",
-    "httpStatus": 403
+    "http_status": 403
   },
   {
-    "code": "PostNotFound",
+    "title": "PostNotFound",
+    "code": "ERR-020",
     "message": "The post was not found. Please check the post ID and try again.",
-    "httpStatus": 404
+    "http_status": 404
   }
 ]
