@@ -2,65 +2,24 @@ name: Generate Error Codes
 
 on:
   push:
-    paths:
-      - 'errors/errors.json'
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
-  generate-and-commit:
+  dispatch-domains:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
+      - name: Dispatch Go
+        uses: peter-evans/repository-dispatch@v3
         with:
-          go-version-file: go-errors/go.mod
-          cache-dependency-path: go-errors/go.sum
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: generate-errors
+          client-payload: '{"commit-message": "${{ github.event.head_commit.message }}"}'
 
-      - name: Set up Pnpm
-        uses: pnpm/action-setup@v4
+      - name: Dispatch TypeScript
+        uses: peter-evans/repository-dispatch@v3
         with:
-          package_json_file: ts-errors/package.json
-          run_install: false
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ts-errors/package.json
-          cache: pnpm
-          cache-dependency-path: ts-errors/pnpm-lock.yaml
-
-      - name: Install Go dependencies
-        run: go mod download
-        working-directory: ./go-errors
-
-      - name: Generate Golang errors
-        run: go run generate.go && go fmt ./goerrors/errors.go
-        working-directory: ./go-errors
-
-      - name: Install TypeScript dependencies
-        run: pnpm install
-        working-directory: ./ts-errors
-
-      - name: Generate TypeScript errors
-        run: pnpm prepublishOnly
-        working-directory: ./ts-errors
-
-      - name: Create App Token
-        id: generate-token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ steps.generate-token.outputs.token }}
-          commit-message: "chore: update error codes"
-          title: "chore: update error codes"
-          body: "This PR updates the error codes. Merging this PR will trigger deployments for Go and TypeScript domains."
-          branch: "update-error-codes"
-          team-reviewers: "api-maintainers"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: generate-errors
+          client-payload: '{"commit-message": "${{ github.event.head_commit.message }}"}'
