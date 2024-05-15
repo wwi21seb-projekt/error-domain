@@ -130,5 +130,17 @@
     "code": "ERR-022",
     "message": "You can't unlike a post you haven't liked.",
     "http_status": 409
+  },
+  {
+    "title": "NotificationNotFound",
+    "code": "ERR-023",
+    "message": "The notification was not found. Please check the notification ID and try again.",
+    "http_status": 404
+  },
+  {
+    "title": "DeleteNotificationForbidden",
+    "code": "ERR-024",
+    "message": "You can only delete your own notifications.",
+    "http_status": 403
   }
 ]
