@@ -28,3 +28,4 @@ This is the shared error domain for the project. If you want to contribute, you 
 | NotLiked | ERR-022 | You can't unlike a post you haven't liked. | 409 |
 | NotificationNotFound | ERR-023 | The notification was not found. Please check the notification ID and try again. | 404 |
 | DeleteNotificationForbidden | ERR-024 | You can only delete your own notifications. | 403 |
+| PasswordResetTokenInvalid | ERR-025 | The password reset token is invalid or has expired. Please request a new token and try again. | 403 |
