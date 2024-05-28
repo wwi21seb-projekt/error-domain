@@ -142,5 +142,11 @@
     "code": "ERR-024",
     "message": "You can only delete your own notifications.",
     "http_status": 403
-  }
+  },
+  {
+    "title": "PasswordResetTokenInvalid",
+    "code": "ERR-025",
+    "message": "The password reset token is invalid or has expired. Please request a new token and try again.",
+    "http_status": 403
+  }  
 ]
