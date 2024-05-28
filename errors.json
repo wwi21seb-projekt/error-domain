@@ -160,11 +160,5 @@
     "code": "ERR-027",
     "message": "The chat was not found. Please check the chat ID and try again.",
     "http_status": 404
-  },
-  {
-    "title": "NotChatParticipant",
-    "code": "ERR-028",
-    "message": "You are not a participant of this chat. Please check the chat ID and try again.",
-    "http_status": 403
   }
 ]
