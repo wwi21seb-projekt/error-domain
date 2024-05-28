@@ -81,7 +81,7 @@
     "title": "Unauthorized",
     "code": "ERR-014",
     "message": "The request is unauthorized. Please login to your account.",
-    "http_status": 401
+    "http_status": 208
   },
   {
     "title": "SubscriptionNotFound",
