@@ -17,7 +17,7 @@ This is the shared error domain for the project. If you want to contribute, you 
 | EmailUnreachable | ERR-011 | The email is unreachable. Please check the email and try again. | 400 |
 | EmailNotSent | ERR-012 | The email could not be sent. Please try again later. | 500 |
 | UserAlreadyActivated | ERR-013 | The user is already activated. Please login to your account. | 400 |
-| Unauthorized | ERR-014 | The request is unauthorized. Please login to your account. | 401 |
+| Unauthorized | ERR-014 | The request is unauthorized. Please login to your account. | 208 |
 | SubscriptionNotFound | ERR-015 | The subscription was not found. Please check the username and try again. | 404 |
 | SubscriptionAlreadyExists | ERR-016 | The subscription already exists. Please check the username and try again. | 409 |
 | SubscriptionSelfFollow | ERR-017 | You cannot follow yourself. Please check the username and try again. | 406 |
@@ -29,3 +29,5 @@ This is the shared error domain for the project. If you want to contribute, you 
 | NotificationNotFound | ERR-023 | The notification was not found. Please check the notification ID and try again. | 404 |
 | DeleteNotificationForbidden | ERR-024 | You can only delete your own notifications. | 403 |
 | PasswordResetTokenInvalid | ERR-025 | The password reset token is invalid or has expired. Please request a new token and try again. | 403 |
+| ChatAlreadyExists | ERR-026 | The chat already exists. Please check the username and try again. | 409 |
+| ChatNotFound | ERR-027 | The chat was not found. Please check the chat ID and try again. | 404 |
