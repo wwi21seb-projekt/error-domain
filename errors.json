@@ -148,5 +148,23 @@
     "code": "ERR-025",
     "message": "The password reset token is invalid or has expired. Please request a new token and try again.",
     "http_status": 403
-  }  
+  },
+  {
+    "title": "ChatAlreadyExists",
+    "code": "ERR-026",
+    "message": "The chat already exists. Please check the username and try again.",
+    "http_status": 409
+  },
+  {
+    "title": "ChatNotFound",
+    "code": "ERR-027",
+    "message": "The chat was not found. Please check the chat ID and try again.",
+    "http_status": 404
+  },
+  {
+    "title": "NotChatParticipant",
+    "code": "ERR-028",
+    "message": "You are not a participant of this chat. Please check the chat ID and try again.",
+    "http_status": 403
+  }
 ]
