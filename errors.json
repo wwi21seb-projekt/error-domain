@@ -1,5 +1,11 @@
 [
   {
+    "title": "EndpointNotFound",
+    "code": "ERR-000",
+    "message": "The endpoint was not found. Please check the endpoint and try again.",
+    "http_status": 404
+  },
+  {
     "title": "BadRequest",
     "code": "ERR-001",
     "message": "The request body is invalid. Please check the request body and try again.",
@@ -159,6 +165,12 @@
     "title": "ChatNotFound",
     "code": "ERR-027",
     "message": "The chat was not found. Please check the chat ID and try again.",
+    "http_status": 404
+  },
+  {
+    "title": "ImageNotFound",
+    "code": "ERR-028",
+    "message": "The image was not found. Please check the image URL and try again.",
     "http_status": 404
   }
 ]
