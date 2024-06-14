@@ -4,6 +4,7 @@ This is the shared error domain for the project. If you want to contribute, you 
 
 | Title | Code | Message | HTTP Status |
 | --- | --- | --- | --- |
+| EndpointNotFound | ERR-000 | The endpoint was not found. Please check the endpoint and try again. | 404 |
 | BadRequest | ERR-001 | The request body is invalid. Please check the request body and try again. | 400 |
 | UsernameTaken | ERR-002 | The username is already taken. Please try another username. | 409 |
 | EmailTaken | ERR-003 | The email is already taken. Please try another email. | 409 |
@@ -31,3 +32,4 @@ This is the shared error domain for the project. If you want to contribute, you 
 | PasswordResetTokenInvalid | ERR-025 | The password reset token is invalid or has expired. Please request a new token and try again. | 403 |
 | ChatAlreadyExists | ERR-026 | The chat already exists. Please check the username and try again. | 409 |
 | ChatNotFound | ERR-027 | The chat was not found. Please check the chat ID and try again. | 404 |
+| ImageNotFound | ERR-028 | The image was not found. Please check the image URL and try again. | 404 |
