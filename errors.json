@@ -51,7 +51,7 @@
     "title": "InvalidCredentials",
     "code": "ERR-008",
     "message": "The credentials are invalid. Please check the credentials and try again.",
-    "http_status": 404
+    "http_status": 403
   },
   {
     "title": "InternalServerError",
@@ -87,7 +87,7 @@
     "title": "Unauthorized",
     "code": "ERR-014",
     "message": "The request is unauthorized. Please login to your account.",
-    "http_status": 208
+    "http_status": 401
   },
   {
     "title": "SubscriptionNotFound",
