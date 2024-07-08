@@ -81,7 +81,7 @@
     "title": "UserAlreadyActivated",
     "code": "ERR-013",
     "message": "The user is already activated. Please login to your account.",
-    "http_status": 400
+    "http_status": 208
   },
   {
     "title": "Unauthorized",
