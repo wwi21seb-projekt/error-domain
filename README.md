@@ -17,7 +17,7 @@ This is the shared error domain for the project. If you want to contribute, you 
 | DatabaseError | ERR-010 | A database error occurred. Please try again later. | 500 |
 | EmailUnreachable | ERR-011 | The email is unreachable. Please check the email and try again. | 400 |
 | EmailNotSent | ERR-012 | The email could not be sent. Please try again later. | 500 |
-| UserAlreadyActivated | ERR-013 | The user is already activated. Please login to your account. | 400 |
+| UserAlreadyActivated | ERR-013 | The user is already activated. Please login to your account. | 208 |
 | Unauthorized | ERR-014 | The request is unauthorized. Please login to your account. | 401 |
 | SubscriptionNotFound | ERR-015 | The subscription was not found. Please check the username and try again. | 404 |
 | SubscriptionAlreadyExists | ERR-016 | The subscription already exists. Please check the username and try again. | 409 |
