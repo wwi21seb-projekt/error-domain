@@ -69,7 +69,7 @@
     "title": "EmailUnreachable",
     "code": "ERR-011",
     "message": "The email is unreachable. Please check the email and try again.",
-    "http_status": 400
+    "http_status": 422
   },
   {
     "title": "EmailNotSent",
